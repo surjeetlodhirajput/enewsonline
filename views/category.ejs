@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enews Current</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/index.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">ENEWS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="dashboard collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+<% if(typeof user!="undefined" ){ %>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="posts/dashboard">DashBoard <%=  %></a>
+  </li>  <% }else{ %>
+    
+<li class="nav-item">
+  <a  id="login-link" href="/user/login">&nbsp;&nbsp;LogIn  </a>
+</li>
+
+<% } %>
+            
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Category
+            </a>
+            <% if(typeof user!="undefined" ){ %>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="user/logout">Logout</a>
+              </li>  <% } %>
+                
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/posts/category/<%= 'Sports' %> ">Sports</a></li>
+              <li><a class="dropdown-item" href="/posts/category/Entertainment">Entertainment</a></li>
+              <li><a class="dropdown-item" href="/posts/category/Politics">Politics</a></li>
+              <li><a class="dropdown-item" href="/posts/category/Environment">Environment</a></li>
+              <li><a class="dropdown-item" href="/posts/category/National">National</a></li>
+              <li><a class="dropdown-item" href="/posts/category/InterNational">InterNational</a></li>
+            </ul>
+          </li>
+                     
+        </ul>
+      </div>
+    </div>
+  </nav> 
+    <div class="container">
+        <% if(data!=''){ %> 
+         <div class="category"><%= data[0].category %> <span></span></div>
+             <ul class="list-group">
+       <% Array.from(data).forEach(post => { %>
+         <li class="list-group-item">
+           <img src="/images/<%= post.thumbnail %>"/>
+           <a href="/posts/readPost/<%= post._id %>">
+             <%= post.body.substring(0,500) %>
+         </a>
+       </li>
+       
+     <%  }); %> 
+     <% } %> 
+     </ul>
+</div> 
+<%- include('./footer.ejs') %>      
+</body>
+</html>
+</html>

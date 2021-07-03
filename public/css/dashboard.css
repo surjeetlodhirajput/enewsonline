@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    height: 40px;
+    z-index: 1;
+
+}
+
+.navbar-nav>li{
+    padding-left: 40px;
+    font-size: 20px;
+}
+#login-link{
+    font-size: 30px;
+color: black;
+font-size: 27px;
+width: 50px;
+text-decoration: none;
+    }
+.left-pane{
+    background-color: #5090ff;
+   height: 93.9vh;
+   border: 2px solid blue;
+   float: left;
+   width: 20%;
+
+}
+.right-pane{
+    float: right;
+    height: 93.9vh;
+    background-color: #002;
+z-index: 10;
+    width: 80%;
+    overflow-y:scroll;
+}
+.sidebar{
+    position: absolute;
+    display: block;
+    width: max-content;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+.sidebar>span{
+    background-color: white;
+    width: 30px;
+    height: 2px;
+    display: block;
+    margin-top: 8px;
+}
+.sidebar:hover{
+    background-color: #001;
+    cursor: pointer;
+}
+.cross{
+  color: white;
+    font-size: 40px;
+    cursor: pointer;
+    margin-top: 0;
+    margin-left: 10px;
+}
+.left-pane>ul{
+    list-style: none;
+    margin-left: -20px;
+    margin-top: 100px;
+}
+.left-pane>ul>li{
+    margin-top: 30px;
+     padding-top: 10px;
+    padding-bottom: 10px;
+border-radius: 10px;
+}
+.left-pane>ul>li:hover{
+    background-color: #7090ff;
+    border-bottom: 2px solid white;
+    transition: 1s;
+}
+.form-label{
+    color: white;
+    font-size: 20px;
+}
+.left-pane>ul>li>a{
+    color: white;
+    text-decoration: none;
+    font-size: 40px;
+}
+.list-group{
+
+    margin-top: -7000px;
+    margin-left: 80px;
+}
+
+.write-post-form{
+    margin-top: 50px;
+    padding-left: 30px;
+    padding-right: 20px;
+    
+}
+.btn-danger{
+    margin-top: 30px;
+    margin-left: 10px;
+}
+@media(max-width:1000px){
+    .left-pane{
+        width: 60%;
+    }
+    .right-pane{
+        width: 40%;
+    }
+}
+@media(max-width:900px){
+    .navbar-nav{
+        background-color: white;
+    }
+}
